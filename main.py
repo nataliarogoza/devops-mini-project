@@ -1,11 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 import psycopg2
 import os
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
+def check_connectivity():
     conn = psycopg2.connect(
         host=os.getenv("POSTGRES_HOST"),
         database=os.getenv("POSTGRES_DB"),
@@ -18,6 +17,10 @@ def home():
     cur.close()
     conn.close()
     return f"Connected to PostgreSQL version: {version}"
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
