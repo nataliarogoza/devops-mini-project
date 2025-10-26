@@ -8,7 +8,8 @@ import matplotlib
 matplotlib.use('Agg')  # Use non-GUI backend for Flask (rendering off-screen)
 import matplotlib.pyplot as plt
 
-load_dotenv()
+# commented after local testing
+# load_dotenv() 
 
 app = Flask(__name__)
 
