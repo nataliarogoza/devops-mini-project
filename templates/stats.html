@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Statistics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Feedback Statistics</h1>
+</header>
+
+<main>
+    <h2>Results</h2>
+    <p>Overall Company Rating: {{ overall_avg }}/5 {{ overall_emoji }}</p>
+
+    <div class="plots-grid">
+        {% for cat, plot in department_data.items() %}
+        <div class="plot-item">
+            <img src="data:image/png;base64,{{ plot }}" alt="{{ cat }} plot">
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <p><a href="/">>> Back to Home <<</a></p>
+</main>
+
+<footer>
+    &copy; 2025 Very Cool Company
+</footer>
+</body>
+</html>

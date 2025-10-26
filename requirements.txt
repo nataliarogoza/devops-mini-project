@@ -1,2 +1,4 @@
-flask
+Flask
+matplotlib
 psycopg2-binary
+python-dotenv
